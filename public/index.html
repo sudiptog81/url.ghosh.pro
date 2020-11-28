@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL.ghosh.pro</title>
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+
+  <body>
+    <header>
+      <h1 class="logo">
+        <span class="blue">url.</span><span class="white">ghosh.pro</span>
+      </h1>
+    </header>
+    <main id="app">
+      <form class="form" v-if="formVisible" @submit.prevent="createUrl()">
+        <div v-if="error" class="error">
+          {{ error }}
+        </div>
+        <input class="input" type="text" v-model="magic" name="magic" id="magic" value="" placeholder="magic" />
+        <input class="input" type="text" v-model="url" name="url" id="url" placeholder="url" />
+        <input class="input" type="text" v-model="slug" name="slug" id="slug" placeholder="slug (opt)" />
+        <button type="submit" class="create">create</button>
+      </form>
+      <div v-if="created">
+        <p class="created"><a :href="created">{{ created }}</a></p>
+      </div>
+    </main>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="/assets/app.js"></script>
+  </body>
+
+</html>
